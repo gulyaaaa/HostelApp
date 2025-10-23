@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- Общий проект Xamarin.Forms -->
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <ProduceReferenceAssemblyInOutDir>true</ProduceReferenceAssemblyInOutDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Используем те версии пакетов, что уже стоят у тебя -->
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+  </ItemGroup>
+
+  <!-- Не добавляем EmbeddedResource: SDK сам подхватит все *.xaml.
+       Только связываем *.xaml.cs с их *.xaml, чтобы IDE правильно группировала -->
+  <ItemGroup>
+    <Compile Update="Pages/MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages/BookingPage.xaml.cs">
+      <DependentUpon>BookingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages/NewBookingPage.xaml.cs">
+      <DependentUpon>NewBookingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages/HousekeepingPage.xaml.cs">
+      <DependentUpon>HousekeepingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages/ServiceDeskPage.xaml.cs">
+      <DependentUpon>ServiceDeskPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages/MainTabbedPage.xaml.cs">
+      <DependentUpon>MainTabbedPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

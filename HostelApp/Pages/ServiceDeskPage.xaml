@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HostelApp.Pages.ServiceDeskPage"
+             Title="Заявки (Service Desk)">
+  <StackLayout Spacing="10">
+    <Frame>
+      <StackLayout Spacing="8">
+        <Label Text="Номер комнаты" />
+        <Picker x:Name="RoomPicker" Title="Выберите номер"/>
+        <Label Text="Описание" />
+        <Entry x:Name="DescEntry" Placeholder="Например: заменить лампочку" />
+        <Label Text="Приоритет" />
+        <Picker x:Name="PriorityPicker" Title="Выберите приоритет"/>
+        <Button Text="Создать заявку" Clicked="OnCreateTask" />
+      </StackLayout>
+    </Frame>
+
+    <ListView x:Name="TasksList" HasUnevenRows="True" SeparatorVisibility="None" SelectionMode="None">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <Frame>
+              <StackLayout Spacing="6">
+                <Label Text="{Binding TitleRu}" FontAttributes="Bold"/>
+                <Label Text="{Binding Description}" />
+                <Grid ColumnSpacing="8">
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/><ColumnDefinition Width="*"/>
+                  </Grid.ColumnDefinitions>
+                  <Button Grid.Column="0" Text="В работу" Clicked="OnToInProgress" />
+                  <Button Grid.Column="1" Text="Закрыть" Clicked="OnDone" />
+                </Grid>
+              </StackLayout>
+            </Frame>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+</ContentPage>

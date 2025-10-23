@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HostelApp.Pages.NewBookingPage"
+             Title="Новая бронь">
+  <ScrollView>
+    <StackLayout Spacing="12">
+      <Frame>
+        <StackLayout Spacing="8">
+          <Label Text="Имя гостя" />
+          <Entry x:Name="GuestEntry" Placeholder="Например: Иван Петров" />
+          <Label Text="Номер комнаты" />
+          <Picker x:Name="RoomPicker" Title="Выберите номер" />
+          <Label Text="Дата заезда" />
+          <DatePicker x:Name="FromDate" />
+          <Label Text="Дата выезда" />
+          <DatePicker x:Name="ToDate" />
+          <StackLayout Orientation="Horizontal" Spacing="10">
+            <Button Text="Создать бронь" Clicked="OnCreate" />
+            <Button Text="Отмена" Clicked="OnCancel" BackgroundColor="#9CA3AF"/>
+          </StackLayout>
+        </StackLayout>
+      </Frame>
+    </StackLayout>
+  </ScrollView>
+</ContentPage>
